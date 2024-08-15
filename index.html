@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos de Medicina</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+      }
+
+      .navbar {
+        position: fixed;
+        left: -200px;
+        top: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #2c3e50;
+        overflow-y: auto;
+        transition: left 0.3s, background-color 0.3s;
+      }
+
+      .navbar::-webkit-scrollbar {
+        display: none; /* Ocultar la barra de desplazamiento en navegadores WebKit */
+      }
+
+      .navbar {
+        -ms-overflow-style: none; /* Ocultar la barra de desplazamiento en Internet Explorer y Edge */
+        scrollbar-width: none; /* Ocultar la barra de desplazamiento en Firefox */
+      }
+
+      .navbar.show {
+        left: 0;
+      }
+
+      .navbar-nav .nav-link {
+        color: white;
+        padding: 15px;
+        text-transform: uppercase;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+      }
+
+      .navbar-nav .nav-link.active {
+        background-color: #2980b9;
+        color: white;
+      }
+
+      .content {
+        margin-left: 0;
+        padding: 20px;
+        height: 100%;
+        transition: margin-left 0.3s;
+      }
+
+      .content.full {
+        margin-left: 200px;
+      }
+
+      .section {
+        height: 100%;
+        display: none;
+        padding: 20px;
+        color: #333;
+        background-color: #f7f7f7;
+      }
+
+      .section.active {
+        display: block;
+      }
+
+      /* Submenú estilo */
+      .navbar-nav .nav-item {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        display: none;
+        padding-left: 15px;
+      }
+
+      .dropdown-menu.show {
+        display: block;
+      }
+
+      .dropdown-menu .nav-link {
+        padding: 10px 15px;
+        color: white;
+        background-color: #34495e;
+      }
+
+      .dropdown-menu .nav-link:hover {
+        background-color: #2980b9;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("JzgcaOsbkKAJSG7PJ");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-nav">
+        <a href="#" data-section="home" class="nav-link active">Inicio</a>
+        <a href="#" data-section="about" class="nav-link">¿Qué es?</a>
+        <a href="#" data-section="how-it-works" class="nav-link"
+          >¿Cómo funciona?</a
+        >
+        <a href="#" data-section="frequencies" class="nav-link"
+          >Frecuencias Cuánticas Analizadas</a
+        >
+        <a href="#" data-section="mission" class="nav-link">Misión</a>
+        <a href="#" data-section="vision" class="nav-link">Visión</a>
+        <a href="#" data-section="benefits" class="nav-link">Beneficios</a>
+
+        <!-- Menú de Productos con submenú desplegable -->
+        <div class="nav-item">
+          <a href="#" class="nav-link" id="productosLink">Productos</a>
+          <div class="dropdown-menu">
+            <a href="#" data-section="healyGold" class="nav-link"
+              >Healy Gold Edition</a
+            >
+            <a href="#" data-section="healyHolistic" class="nav-link"
+              >Healy Holistic Edition</a
+            >
+            <a href="#" data-section="healyResonance" class="nav-link"
+              >Healy Resonance Edition</a
+            >
+            <a href="#" data-section="healyResonancePlus" class="nav-link"
+              >Healy Resonance Plus</a
+            >
+            <a href="#" data-section="healyProfessional" class="nav-link"
+              >Healy Professional</a
+            >
+            <a href="#" data-section="healyObsidian" class="nav-link"
+              >Healy Obsidian</a
+            >
+            <a href="#" data-section="MagHealy" class="nav-link">MagHealy</a>
+            <a href="#" data-section="healyCoil" class="nav-link">Healy Coil</a>
+            <a href="#" data-section="elements" class="nav-link">Elements</a>
+          </div>
+        </div>
+
+        <a href="#" data-section="demo" class="nav-link">Demo</a>
+        <a href="#" data-section="session" class="nav-link">Sesión</a>
+        <a href="#" data-section="promos" class="nav-link">Promos</a>
+        <a href="#" data-section="contact" class="nav-link">Contacto</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="home" class="section active" style="--nav-color: #2980b9">
+        <h1 class="text-center">Bienvenidos a Cuantico Holístico</h1>
+        <img
+          src="img/home.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="about" class="section" style="--nav-color: #27ae60">
+        <img
+          src="img/queEs.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="how-it-works" class="section" style="--nav-color: #8e44ad">
+        <img
+          src="img/comoFunciona.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="frequencies" class="section" style="--nav-color: #f39c12">
+        <img
+          src="img/frecuencias.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="mission" class="section" style="--nav-color: #c0392b">
+        <img
+          src="img/mision.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="vision" class="section" style="--nav-color: #16a085">
+        <img
+          src="img/vision.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="benefits" class="section" style="--nav-color: #d35400">
+        <img
+          src="img/beneficios.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <!-- Páginas de productos -->
+      <div id="healyGold" class="section" style="--nav-color: #3498db">
+        <img
+          src="img/healyGold.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="healyHolistic" class="section" style="--nav-color: #9b59b6">
+        <img
+          src="img/healyHolistic.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="healyResonance" class="section" style="--nav-color: #1abc9c">
+        <img
+          src="img/healyResonance.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="healyResonancePlus" class="section" style="--nav-color: #e74c3c">
+        <img
+          src="img/healyResonance+.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="healyProfessional" class="section" style="--nav-color: #2c3e50">
+        <img
+          src="img/healyProfessional.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="healyObsidian" class="section" style="--nav-color: #7f8c8d">
+        <img
+          src="img/healyObsidian.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="MagHealy" class="section" style="--nav-color: #34495e">
+        <img
+          src="img/maghealy.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="healyCoil" class="section" style="--nav-color: #16a085">
+        <img
+          src="img/healyCoil.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="elements" class="section" style="--nav-color: #d35400">
+        <img
+          src="img/elements.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+
+      <div id="demo" class="section" style="--nav-color: #e67e22">
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/watch?v=_LULut90q3k?autoplay=1&mute=1?controls=0"
+        >
+        </iframe>
+      </div>
+
+      <div id="session" class="section" style="--nav-color: #2ecc71">
+        <h1>Sesión</h1>
+        <p>
+          Agende una sesión con nosotros completando el formulario a
+          continuación.
+        </p>
+        <form id="sessionForm">
+          <div class="mb-3">
+            <label for="sessionName" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              name="sessionName"
+              id="sessionName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="sessionEmail" class="form-label"
+              >Correo Electrónico</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              name="sessionEmail"
+              id="sessionEmail"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="sessionDate" class="form-label"
+              >Fecha de la Sesión</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="sessionDate"
+              name="sessionDate"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="sessionTime" class="form-label"
+              >Hora de la Sesión</label
+            >
+            <input
+              type="time"
+              class="form-control"
+              id="sessionTime"
+              name="sessionTime"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="sessionMessage" class="form-label"
+              >Mensaje (Opcional)</label
+            >
+            <textarea
+              class="form-control"
+              id="sessionMessage"
+              name="sessionMessage"
+              rows="3"
+            ></textarea>
+          </div>
+          <button id="buttonCita" type="submit" class="btn btn-primary">
+            Agendar Sesión
+          </button>
+        </form>
+      </div>
+
+      <div id="contact" class="section" style="--nav-color: #e74c3c">
+        <h1>Contacto</h1>
+        <p>Contáctenos completando el formulario a continuación.</p>
+        <form id="contactForm">
+          <div class="mb-3">
+            <label for="contactName" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contactName"
+              name="contactName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label"
+              >Correo Electrónico</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="contactEmail"
+              name="contactEmail"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contactSubject" class="form-label">Asunto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contactSubject"
+              name="contactSubject"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contactMessage" class="form-label">Mensaje</label>
+            <textarea
+              class="form-control"
+              id="contactMessage"
+              name="contactMessage"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <button id="buttonMensaje" type="submit" class="btn btn-primary">
+            Agendar Sesión
+          </button>
+        </form>
+      </div>
+
+      <div id="promos" class="section" style="--nav-color: #3498db">
+        <img
+          src="img/promos.png"
+          class="img-fluid rounded mx-auto d-block"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <script>
+      const btn = document.getElementById("buttonCita");
+
+      document
+        .getElementById("sessionForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          btn.value = "Sending...";
+
+          const serviceID = "default_service";
+          const templateID = "template_yp6ooze";
+
+          emailjs.sendForm(serviceID, templateID, this).then(
+            () => {
+              btn.value = "Send Email";
+              alert("Sent!");
+            },
+            (err) => {
+              btn.value = "Send Email";
+              alert(JSON.stringify(err));
+            }
+          );
+        });
+
+      const btn2 = document.getElementById("buttonMensaje");
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          btn.value = "Sending...";
+
+          const serviceID = "default_service";
+          const templateID = "template_8g80s78";
+
+          emailjs.sendForm(serviceID, templateID, this).then(
+            () => {
+              btn.value = "Send Email";
+              alert("Sent!");
+            },
+            (err) => {
+              btn.value = "Send Email";
+              alert(JSON.stringify(err));
+            }
+          );
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar");
+        const content = document.querySelector(".content");
+        const menuItems = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll(".content > .section");
+        const productosLink = document.getElementById("productosLink");
+        const dropdownMenu = productosLink.nextElementSibling;
+
+        document.body.addEventListener("mousemove", function (e) {
+          if (e.clientX < 50) {
+            navbar.classList.add("show");
+            content.classList.add("full");
+          } else if (e.clientX > 200) {
+            navbar.classList.remove("show");
+            content.classList.remove("full");
+          }
+        });
+
+        menuItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            menuItems.forEach((el) => el.classList.remove("active"));
+            item.classList.add("active");
+
+            const sectionId = item.getAttribute("data-section");
+            sections.forEach((section) => {
+              section.classList.remove("active");
+              if (section.id === sectionId) {
+                section.classList.add("active");
+              }
+            });
+
+            const newColor = document
+              .querySelector(`#${sectionId}`)
+              .style.getPropertyValue("--nav-color");
+            navbar.style.backgroundColor = newColor;
+          });
+        });
+
+        productosLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          dropdownMenu.classList.toggle("show");
+        });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
